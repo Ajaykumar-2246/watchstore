@@ -1,36 +1,118 @@
 <%- include("header") -%>
+<style>
+  /* General Styles */
+  html, body {
+      height: 100%; /* Full height for html and body */
+      margin: 0;
+  }
 
-<form action="/order" method="post">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Order</th>
-      </tr>
-    </thead>
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+  }
 
+  .content {
+      flex: 1; /* Allow content to grow and push footer down */
+  }
 
-<% let i=0 %>
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-<%    cartList.forEach(function(items) { %>
-<% i=i+1 %>
+  thead {
+      background-color: #343a40;
+      color: #ffffff;
+  }
 
-        <tbody>
-          <tr>
-            <th scope="row"><%=i%></th>
-            <td><%=  items.id  %></td>
-            <td><%=  items.name  %></td>
-            <td><%=  items.price  %></td>
-            <td><button type="submit" class="btn btn-success" name="btn" value="<%=  items.name  %>">order</button></td>
-          </tr>
-        </tbody>
+  th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+  }
 
-<%   }) %>
-</table>
-</form>
+  th {
+      font-size: 1.1rem;
+  }
 
+  td {
+      font-size: 1rem;
+  }
+
+  tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+
+  tbody tr:hover {
+      background-color: #e9ecef;
+  }
+
+  .btn-success {
+      background-color: #28a745;
+      border: none;
+      color: #ffffff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none; /* Remove underline from links */
+      transition: background-color 0.3s ease;
+  }
+
+  .btn-success:hover {
+      background-color: #218838;
+  }
+
+  form {
+      margin: 0 auto;
+      max-width: 800px;
+  }
+
+  footer {
+      background-color: #343a40;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+  }
+</style>
+
+<div class="content">
+    <form action="/order" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Order</th>
+                </tr>
+            </thead>
+
+            <% let i = 0 %>
+            <% cartList.forEach(function(items) { %>
+            <% i = i + 1 %>
+            <tbody>
+                <tr>
+                    <th scope="row"><%= i %></th>
+                    <td><%= items.id %></td>
+                    <td><%= items.name %></td>
+                    <td><%= items.price %></td>
+                    <td><button type="submit" class="btn-success" name="btn" value="<%= items.name %>">Order</button></td>
+                </tr>
+            </tbody>
+            <% }) %>
+        </table>
+    </form>
+</div>
 
 <%- include("footer") -%>

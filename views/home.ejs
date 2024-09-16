@@ -1,5 +1,202 @@
 <%-include('header')%>
+<style>
+    /* General styling for body and headers */
+body {
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Navigation menu styling */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a, 
+.productlink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+nav ul li a:hover, 
+.productlink:hover {
+    background-color: #45a049;
+}
+
+/* Section styling */
+section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+section p {
+    color: #666;
+    font-size: 18px;
+}
+
+/* Product cards styling */
+.card {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 18px;
+    color: #555;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Home section styling */
+#home {
+    background: url('images/watch_banner.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+#home h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}
+
+/* About and Contact section styling */
+#about, #contact {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#about h2, #contact h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#about p, #contact p {
+    font-size: 18px;
+    color: #666;
+}
+
+address {
+    font-style: normal;
+    font-size: 18px;
+    color: #666;
+}
+
+address a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.product{
+    border: none;
+    box-shadow: none;
+}
+</style>
 <body>
     <header>
         <form action="/options" method="post">
@@ -7,7 +204,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><button type="submit" name="option" value="products">products</button></li>
+                <li><button type="submit" name="option" class="productlink" value="products">Products</button></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -36,7 +233,7 @@
                 
                 <center>
                     <div class="card" style="width: 18rem;">
-                        <img src="images/casualwatch.jpg" class="card-img-top" alt="...">
+                        <img src="images/casualwatch.jpg" style="width: 250px;" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">CASUAL MEN WATCH</h5>
                           <p class="card-text">PRICE:Rs.5000/-</p>
@@ -46,7 +243,7 @@
                     <br>
                     <br>
                     <div class="card" style="width: 18rem;">
-                        <img src="images/smart watch.jpg" class="card-img-top" alt="...">
+                        <img src="images/smart watch.jpg" style="height: 230px;" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">SMART WATCH</h5>
                           <p class="card-text">PRICE:Rs.3400/-</p>
@@ -76,8 +273,7 @@
         <h2>Contact Us</h2>
         <p>If you have any questions or inquiries, feel free to contact us:</p>
         <address>
-            Email: <a href="mailto:21eg106b36@anurag.edu.in">21eg106b36@anurag.edu.in</a><br>
-            Phone: +91 8396334242<br>
+            Email: <a href="mailto:21eg106b36@anurag.edu.in">21eg106b06@anurag.edu.in</a><br>
             Address: WATCH STREET , HYDERABAD.
         </address>
     </section>

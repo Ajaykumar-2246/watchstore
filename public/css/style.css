@@ -25,6 +25,8 @@ h3{
 }
 .topnav .search-container{
     float: right;
+    margin: 10px;
+    padding: 10px;
 }
 
 form{
@@ -62,3 +64,4 @@ input{
     text-align:center;
     background-color: #151f30;
 }
+
